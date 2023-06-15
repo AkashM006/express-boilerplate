@@ -80,6 +80,10 @@ You can read about [bcrypt in Wikipedia](https://en.wikipedia.org/wiki/Bcrypt) a
 
 [This library](https://github.com/jquense/yup) is a schema builder for runtime value parsing and validation. Define a schema, transform a value to match, assert the shape of an existing value, or both. Yup schema are extremely expressive and allow modeling complex, interdependent validations, or value transformation.
 
+## cookie-parser
+
+[This library](https://www.npmjs.com/package/cookie-parser) parses `Cookie` header and populate `req.cookies` with an object keyed by the cookie names. Optionally you may enable signed cookie support by passing a `secret` string, which assigns `req.secret` so it may be used by other middleware.
+
 # Swagger
 
 Swagger is a tool used for documenting APIs so that anyone using this can understand how the responses are and what the required parameters are without having to take a glance at the code for that.
