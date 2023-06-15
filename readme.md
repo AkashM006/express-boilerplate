@@ -76,9 +76,9 @@ You can read about [bcrypt in Wikipedia](https://en.wikipedia.org/wiki/Bcrypt) a
 
 [This library](https://github.com/winstonjs/winston-daily-rotate-file) is a transport for [winston](https://github.com/winstonjs/winston) which logs to a rotating file. Logs can be rotated based on a date, size limit, and old logs can be removed based on count or elapsed days.
 
-## zod
+## yup
 
-[This library](https://zod.dev/) is the TypeScript-first schema validation with static type inference
+[This library](https://github.com/jquense/yup) is a schema builder for runtime value parsing and validation. Define a schema, transform a value to match, assert the shape of an existing value, or both. Yup schema are extremely expressive and allow modeling complex, interdependent validations, or value transformation.
 
 # Swagger
 
