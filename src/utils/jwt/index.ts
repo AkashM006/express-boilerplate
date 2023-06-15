@@ -1,13 +1,17 @@
-import { Users } from "@prisma/client";
 import jwt from "jsonwebtoken";
 
-const signAccessToken = (user: Users) =>
+type TokenUser = {
+  email: string;
+  name: string;
+};
+
+const signAccessToken = (user: TokenUser) =>
   signToken(user, process.env.ACCESS_TOKEN_SECRET as string, "15m");
 
-const signRefreshToken = (user: Users) =>
+const signRefreshToken = (user: TokenUser) =>
   signToken(user, process.env.REFRESH_TOKEN_SECRET as string, "1d");
 
-const signToken = (user: Users, secret: string, expiresIn: string) => {
+const signToken = (user: TokenUser, secret: string, expiresIn: string) => {
   const token = jwt.sign(
     {
       email: user.email,
