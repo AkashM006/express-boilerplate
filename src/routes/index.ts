@@ -2,6 +2,8 @@ import express from "express";
 import { helloWord, notFound } from "../controllers";
 import { default as swaggerRoutes } from "./swagger";
 import loginRateLimiter from "../utils/middlewares/rateLimiter";
+import validator from "../utils/validation/validator";
+import { userRegistrationSchema } from "../utils/validation";
 
 const app = express.Router();
 

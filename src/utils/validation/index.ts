@@ -1,32 +1,25 @@
-import { z } from "zod";
+import * as yup from "yup";
 
-const userRegistrationSchema = z.object({
-  name: z
-    .string({
-      required_error: "Name is required",
-    })
-    .min(2, "Name should we be atleast 3 characters long")
+const userRegistrationSchema = yup.object({
+  name: yup
+    .string()
     .trim()
-    .regex(/^[a-zA-z ]{3,}$/, {
-      message:
-        "Name should contain only alphabets and length should be atleast 2 characters long",
-    }),
-  email: z
-    .string({
-      required_error: "Email is required",
-    })
+    .min(3, "Name must be atleast 3 characters long")
+    .matches(/^[a-zA-Z\s]+$/, "Name must contain only alphabets")
+    .required("Name is required"),
+  email: yup
+    .string()
+    .email("Please enter valid email")
     .trim()
-    .email("Please enter valid email"),
-  password: z
-    .string({
-      required_error: "Password is required",
-    })
-    .trim()
+    .required("Email is required"),
+  password: yup
+    .string()
     .min(8, "Password must be atleast 8 characters long")
-    .regex(
+    .matches(
       /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z]).*$/,
       "Password must have at least one number, one special character, and one capital letter"
-    ),
+    )
+    .required("Password is required"),
 });
 
 export { userRegistrationSchema };
