@@ -23,4 +23,13 @@ const signToken = (user: TokenUser, secret: string, expiresIn: string) => {
   return token;
 };
 
-export { signAccessToken, signRefreshToken };
+const verifyToken = (token: string, type: "refresh" | "access") => {
+  const secret = (
+    type === "refresh"
+      ? process.env.REFRESH_TOKEN_SECRET
+      : process.env.ACCESS_TOKEN_SECRET
+  ) as string;
+  return jwt.verify(token, secret);
+};
+
+export { signAccessToken, signRefreshToken, verifyToken };
